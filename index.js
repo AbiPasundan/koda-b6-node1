@@ -17,28 +17,13 @@ const artistMusic = [
 
 console.log("------------------");
 artistMusic.map(x => {
-    // console.log(x.name)
-
     function createDir() {
-        fs.mkdirSync(x.name, (err) => {
-            if (err) {
-                console.error('Error creating directory:', err);
-            } else {
-                console.log('Directory created successfully!');
-            }
-        });
+        fs.mkdirSync(x.name);
     }
 
     function createdFiles() {
         x.song.forEach(element => {
-            fs.writeFileSync(`${x.name}/${element}.mp3`, "content", err => {
-                if (err) {
-                    console.error(err);
-                } else {
-                    console.log("yeay");
-                }
-            });
-    
+            fs.writeFileSync(`${x.name}/${element}.mp3`, "content");
         });
     }
 
