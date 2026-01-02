@@ -3,46 +3,49 @@ import fs from "fs"
 const artistMusic = [
     {
         name: "iwan",
-        song: ["Akupun.mp3", "Opini.mp3", "Suara Hati.mp3"],
+        song: ["Akupun", "Opini", "Suara Hati"],
     },
     {
         name: "agnes",
-        song: ["Yess!.mp3", "Tralala Trilili.mp3", "Balabala.mp3"],
+        song: ["Yess!", "Tralala Trilili", "Balabala"],
     },
     {
         name: "tipex",
-        song: ["kawan.mp3", "Selamat Jalan.mp3", "And The Story Goes.mp3"]
+        song: ["kawan", "Selamat Jalan", "And The Story Goes"]
     },
 ]
 
-let q = 0
-let artMusic = []
-let artName = []
-// artistMusic.forEach(x => {
-
-// });
-// console.log(artistMusic);
 console.log("------------------");
 artistMusic.map(x => {
-    console.log(x.name)
-    fs.mkdir(x.name, (err) => {
-        if (err) {
-            console.error('Error creating directory:', err);
-        } else {
-            console.log('Directory created successfully!');
-        }
-    });
+    // console.log(x.name)
 
-    x.song.forEach(element => {
-        fs.writeFile(`${x.name}/${element}`, "content", err => {
+    function createDir() {
+        fs.mkdirSync(x.name, (err) => {
             if (err) {
-                console.error(err);
+                console.error('Error creating directory:', err);
             } else {
-                console.log("yeay");
+                console.log('Directory created successfully!');
             }
         });
+    }
 
-    });
-    artMusic = x.song
+    function createdFiles() {
+        x.song.forEach(element => {
+            fs.writeFileSync(`${x.name}/${element}.mp3`, "content", err => {
+                if (err) {
+                    console.error(err);
+                } else {
+                    console.log("yeay");
+                }
+            });
+    
+        });
+    }
+
+    function runAll() {
+        createDir()
+        createdFiles()
+    }
+
+    runAll()
 })
-// console.log(artMusic);
