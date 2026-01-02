@@ -1,49 +1,48 @@
 import fs from "fs"
 
-// const folderName = './music';
-// const fileName = 'music.mp3';
+const artistMusic = [
+    {
+        name: "iwan",
+        song: ["Akupun.mp3", "Opini.mp3", "Suara Hati.mp3"],
+    },
+    {
+        name: "agnes",
+        song: ["Yess!.mp3", "Tralala Trilili.mp3", "Balabala.mp3"],
+    },
+    {
+        name: "tipex",
+        song: ["kawan.mp3", "Selamat Jalan.mp3", "And The Story Goes.mp3"]
+    },
+]
 
-const artist = ["Iwan Fals", "Agnes Monica", "Sumbang"]
+let q = 0
+let artMusic = []
+let artName = []
+// artistMusic.forEach(x => {
 
-const fileName = ['music.mp3']
-const folderName = ['./music']
-
-artist.forEach(element => {
-    // console.log(element);
-
-
-    fs.mkdir(element, (err) => {
+// });
+// console.log(artistMusic);
+console.log("------------------");
+artistMusic.map(x => {
+    console.log(x.name)
+    fs.mkdir(x.name, (err) => {
         if (err) {
             console.error('Error creating directory:', err);
         } else {
             console.log('Directory created successfully!');
-            fs.writeFile(`${element}/${element}.mp3`, "content", err => {
-                if (err) {
-                    console.error(err);
-                } else {
-                    console.log("yeay");
-                }
-            });
         }
     });
 
+    x.song.forEach(element => {
+        fs.writeFile(`${x.name}/${element}`, "content", err => {
+            if (err) {
+                console.error(err);
+            } else {
+                console.log("yeay");
+            }
+        });
 
-});
-
-
-
-// fs.mkdir(folderName, (err) => {
-//     if (err) {
-//         console.error('Error creating directory:', err);
-//     } else {
-//         console.log('Directory created successfully!');
-//         fs.writeFile(`${folderName}/${fileName}`, "content", err => {
-//             if (err) {
-//                 console.error(err);
-//             } else {
-//                 console.log("yeay");
-//             }
-//         });
-//     }
-// });
-
+    });
+    artMusic = x.song
+})
+// console.log(artMusic);
