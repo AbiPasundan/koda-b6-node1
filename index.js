@@ -18,12 +18,27 @@ const artistMusic = [
 console.log("------------------");
 artistMusic.map(x => {
     function createDir() {
-        fs.mkdirSync(x.name);
+
+        if (fs.existsSync(x.name)) {
+            console.log(`Direktory / Folder ${x.name}, sudah ada`);
+        } else {
+            fs.mkdirSync(x.name);
+        }
+
+
     }
 
     function createdFiles() {
         x.song.forEach(element => {
-            fs.writeFileSync(`${x.name}/${element}.mp3`, "content");
+            // console.log(element);
+            
+            // if (x.name.existsSync(`${element}.mp3`)) {
+            //     console.log(`file sudah ada`);
+            // } else {
+                fs.writeFileSync(`${x.name}/${element}.mp3`, "content");
+            // }
+
+
         });
     }
 
