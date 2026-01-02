@@ -1,4 +1,4 @@
-import fs from "fs"
+import fs from "fs";
 
 const artistMusic = [
     {
@@ -13,7 +13,7 @@ const artistMusic = [
         name: "tipex",
         song: ["kawan", "Selamat Jalan", "And The Story Goes"]
     },
-]
+];
 
 console.log("------------------");
 artistMusic.map(x => {
@@ -27,7 +27,6 @@ artistMusic.map(x => {
 
 
     }
-
     function createdFiles() {
         x.song.forEach(element => {
             // console.log(element);
@@ -43,10 +42,12 @@ artistMusic.map(x => {
     }
 
     function runAll() {
-        createDir()
-        createdFiles()
+        createDir();
+        createdFiles();
     }
 
-    runAll()
-})
+    runAll();
+});
 
+let i = 1;
+console.log(i);

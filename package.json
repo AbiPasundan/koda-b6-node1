@@ -5,12 +5,23 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "test": "npx eslint --global describe --global it tests/",
+    "lint": "npx eslint .",
+    "lint-fix": "npx eslint . --fix",
+    "lint-rule": "npx eslint --print-config index.js",
+    "lint-debug": "npx eslint --debug index.js "
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "moment": "^2.30.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "eslint": "^9.39.2",
+    "globals": "^17.0.0"
   }
 }
