@@ -1,0 +1,16 @@
+{
+  "name": "day12",
+  "version": "1.0.0",
+  "description": "* fs - untuk berintrak si dengan filesistem * path - untuk berinteraksi denan path * http - untuk membuat client server http * crypto - untuk mneyediakan kebutuhan kriptografi * dll",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.30.1"
+  }
+}
